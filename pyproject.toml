@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claude-paints-jensen"
+version = "0.1.0"
+description = "Reproduce a four-marker portrait with an SO-101 follower"
+requires-python = ">=3.12,<3.14"
+dependencies = ["numpy>=1.26,<3", "pillow>=10,<13", "mujoco==3.3.7"]
+
+[project.optional-dependencies]
+hardware = ["lerobot[feetech] @ https://github.com/huggingface/lerobot/archive/fe1c54594f6ba275fccf210b9f7b11f0e2324b89.tar.gz"]
+
+[tool.setuptools]
+packages = ["portrait"]
+
+[tool.setuptools.package-data]
+portrait = ["strokes.json"]
